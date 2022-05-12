@@ -25,14 +25,11 @@ export default function App() {
   const isLogined = useSelector((state: State) => state.users.isLogined);
 
   useEffect(() => {
-    let timer: number;
     if (users.length === 0) {
-      timer = window.setTimeout(() => {
+      setTimeout(() => {
         dispatch(fetchUsers());
       }, 1000);
     }
-
-    return () => clearTimeout(timer);
   }, [users.length, dispatch]);
 
   const renderUsers = users.map((user: User) => {

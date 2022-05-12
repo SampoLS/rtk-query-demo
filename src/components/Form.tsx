@@ -1,3 +1,4 @@
+import axios from "axios";
 import { MouseEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { handleSetToLogin } from "../features/usersSlice";
@@ -9,7 +10,7 @@ export default function Form() {
 
   const dispatch = useDispatch();
 
-  const handleLogin = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleLogin = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     if (username === "tamelo" && password === "123456") {
